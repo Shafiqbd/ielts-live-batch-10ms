@@ -27,3 +27,16 @@ export interface InstructorType {
   short_description: string;
   slug: string;
 }
+
+export interface FeaturesType {
+  icon: string;
+  id: string;
+  subtitle: string;
+  title: string;
+}
+export interface PointersType {
+  icon?: string;
+  color?: string;
+  id: string;
+  text: string;
+}

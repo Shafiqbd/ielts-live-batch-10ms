@@ -1,5 +1,6 @@
 import { InstructorType } from "@/types/types";
 import Image from "next/image";
+import SectionTitle from "./SectionTitle";
 
 interface props {
   name: string;
@@ -8,7 +9,7 @@ interface props {
 export default function Instructors({ name, values }: props) {
   return (
     <div className="mb-10">
-      <h2 className="mb-4 text-xl font-semibold md:text-2xl">{name}</h2>
+      <SectionTitle title={name} />
       <div className="grid grid-cols-1 px-4 mb-4 border rounded-md lg:grid-cols-2">
         {values &&
           values.length > 0 &&
