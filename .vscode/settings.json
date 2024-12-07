@@ -2,6 +2,7 @@
   // config related to code formatting
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "editor.fontSize": 18,
 
   "[typescript]": {
     "editor.formatOnSave": true,

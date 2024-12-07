@@ -16,6 +16,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --swiper-navigation-size: 15px !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,4 +30,34 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* react swiper style */
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: rgb(162, 159, 159) !important;
+  background: white !important;
+  padding: 14px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+.swiper-slide {
+  /* height: 30px !important;
+  width: 50px !important; */
+}
+
+.swiper-slide-thumb-active {
+  border: 3px solid green;
+  border-radius: 5px;
+}
+
+.swipper-thumbs {
+  margin-top: 15px !important;
+  margin-left: 15px !important;
+}
+
+.swiper-slide-visible {
+  height: 30px !important;
+  width: 55px !important;
 }

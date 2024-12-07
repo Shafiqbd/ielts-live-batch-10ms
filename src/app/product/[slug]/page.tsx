@@ -9,18 +9,22 @@ import Media from "@/app/components/Media";
 import Pointers from "@/app/components/Pointers";
 import Routine from "@/app/components/Routine";
 import Testimonial from "@/app/components/Testimonial";
+import { apiService } from "@/utils/apiService";
 
-export default function ProductDetails() {
+export default async function ProductDetails() {
+  const data = await apiService("products/ielts-live-batch");
+
+  console.log("data", data);
   return (
     <div>
-      <div className="min-h-[300px] md:min-h-[650px] overview-background">
+      <div className=" overview-background">
         <div className="container relative flex flex-col gap-4 md:flex-row md:gap-12 pb-6 md:py-10  mx-auto">
           <div className="order-1 flex flex-col justify-center flex-1 md:order-1 md:max-w-[calc(100%_-_348px)] lg:max-w-[calc(100%_-_500px)]">
-            <CourseOverview />
+            <CourseOverview {...data} />
           </div>
 
-          <div className="w-full md:max-w-[330px] lg:max-w-[400px] order-2 bg-white absolute right-0 md:top-[50px] md:absolute">
-            <Media />
+          <div className="w-full md:max-w-[330px] lg:max-w-[400px] order-2 bg-white absolute right-0 md:top-[50px] md:absolute p-1">
+            <Media media={data.media} />
           </div>
         </div>
       </div>
@@ -38,7 +42,7 @@ export default function ProductDetails() {
           <Faq />
         </section>
         <section className="w-full md:max-w-[330px] lg:max-w-[400px] order-2 bg-white">
-          <Media />
+          {/* <Media /> */}
         </section>
       </main>
     </div>

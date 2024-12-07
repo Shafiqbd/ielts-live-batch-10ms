@@ -1,19 +1,25 @@
-export default function CourseOverview() {
+import { Overview } from "@/types/types";
+import Image from "next/image";
+
+export default function CourseOverview({ title, description }: Overview) {
   return (
-    <div className="text-white">
-      <h1 className="text-white mb-2 text-[21px] font-semibold  md:text-4xl">
-        IELTS LIVE Batch
+    <div className="">
+      <Image
+        src="https://cdn.10minuteschool.com/images/live_icon_1712036077434.png"
+        alt="live-batch-logo"
+        width={100}
+        height={100}
+        className="mb-4"
+      />
+      <h1 className="text-white mb-4 text-[21px] font-semibold  md:text-4xl">
+        {title}
       </h1>
 
-      <p className="text-[#A3A3A3]" dir="ltr">
-        <span>
-          আমাদের দেশসেরা ইন্সট্রাক্টরের ডিরেক্ট গাইডেন্স ও ফিডব্যাকসহ IELTS' র
-          সেরা প্রস্তুতি পাবেন এই একটি কোর্সেই। লাইভ কোর্সে Listening, Reading,
-          Writing এবং Speaking এর সকল টেকনিকগুলো শেখানো হবে, একদম হাতে-কলমে।
-          লাইভ ব্যাচে জয়েন করে মাত্র ১২ সপ্তাহের মধ্যে unlock করুন আপনার কাঙ্খিত
-          IELTS স্কোর।
-        </span>
-      </p>
+      <p
+        className="text-[#A3A3A3]"
+        dir="ltr"
+        dangerouslySetInnerHTML={{ __html: description }}
+      ></p>
     </div>
   );
 }
