@@ -14,7 +14,8 @@ import { apiService } from "@/utils/apiService";
 export default async function ProductDetails() {
   const data: any = await apiService("products/ielts-live-batch");
 
-  const { media, checklist, cta_text, start_at } = data;
+  const { media, checklist, cta_text, start_at, sections } = data;
+
   return (
     <div>
       <div className=" overview-background">
@@ -38,15 +39,31 @@ export default async function ProductDetails() {
 
       <main className="container flex flex-col gap-4 md:flex-row md:gap-12 mx-auto ">
         <section className="order-2 flex-1 md:order-1  md:max-w-[calc(100%_-_348px)] lg:max-w-[calc(100%_-_448px)]">
-          <DemoClass />
-          <Instructors />
-          <Features />
-          <Pointers />
-          <Routine />
-          <FreeItem />
-          <Testimonial />
-          <About />
-          <Faq />
+          {sections &&
+            sections.length > 0 &&
+            sections.map((section: any, index: number) => {
+              return (
+                <div key={index}>
+                  {section.type === "demo_class_book_engagement" && (
+                    <DemoClass {...section.values[0]} />
+                  )}
+                  {section.type === "features" && <Features {...section} />}
+
+                  {section.type === "routine" && <Routine {...section} />}
+                  {section.type === "instructors" && (
+                    <Instructors {...section} />
+                  )}
+
+                  {section.type === "pointers" && <Pointers {...section} />}
+                  {section.type === "free_items" && <FreeItem {...section} />}
+                  {section.type === "testimonials" && (
+                    <Testimonial {...section} />
+                  )}
+                  {section.type === "about" && <About {...section} />}
+                  {section.type === "faq" && <Faq {...section} />}
+                </div>
+              );
+            })}
         </section>
         <section className="w-full md:max-w-[330px] lg:max-w-[400px] order-2 bg-white">
           {/* <Media /> */}
