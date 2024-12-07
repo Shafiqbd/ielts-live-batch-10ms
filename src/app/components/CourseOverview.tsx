@@ -15,11 +15,13 @@ export default function CourseOverview({ title, description }: Overview) {
         {title}
       </h1>
 
-      <p
+      <div
         className="text-[#A3A3A3]"
         dir="ltr"
-        dangerouslySetInnerHTML={{ __html: description }}
-      ></p>
+        dangerouslySetInnerHTML={{
+          __html: description || "No description available.",
+        }}
+      />
     </div>
   );
 }

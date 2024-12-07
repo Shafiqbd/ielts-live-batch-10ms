@@ -10,3 +10,11 @@ export interface MediaType {
   resource_value: string;
   thumbnail_url?: string;
 }
+
+export interface Checklist {
+  color: string;
+  icon: string;
+  id: string;
+  list_page_visibility: string;
+  text: string;
+}

@@ -5,16 +5,16 @@ import Faq from "@/app/components/Faq";
 import Features from "@/app/components/Features";
 import FreeItem from "@/app/components/FreeItem";
 import Instructors from "@/app/components/Instructors";
-import Media from "@/app/components/Media";
 import Pointers from "@/app/components/Pointers";
 import Routine from "@/app/components/Routine";
+import Sidebar from "@/app/components/Sidebar";
 import Testimonial from "@/app/components/Testimonial";
 import { apiService } from "@/utils/apiService";
 
 export default async function ProductDetails() {
-  const data = await apiService("products/ielts-live-batch");
+  const data: any = await apiService("products/ielts-live-batch");
 
-  console.log("data", data);
+  const { media, checklist, cta_text, start_at } = data;
   return (
     <div>
       <div className=" overview-background">
@@ -23,8 +23,15 @@ export default async function ProductDetails() {
             <CourseOverview {...data} />
           </div>
 
-          <div className="w-full md:max-w-[330px] lg:max-w-[400px] order-2 bg-white absolute right-0 md:top-[50px] md:absolute p-1">
-            <Media media={data.media} />
+          <div className="w-full md:max-w-[330px] lg:max-w-[400px] order-2 bg-white absolute right-0 md:top-[50px] md:absolute p-1 border">
+            {media && checklist && media.length > 0 && (
+              <Sidebar
+                media={media}
+                checklist={checklist}
+                cta_text={cta_text}
+                start_at={start_at}
+              />
+            )}
           </div>
         </div>
       </div>

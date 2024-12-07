@@ -60,4 +60,6 @@ body {
 .swiper-slide-visible {
   height: 30px !important;
   width: 55px !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
 }

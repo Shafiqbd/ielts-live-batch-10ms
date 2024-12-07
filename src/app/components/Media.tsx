@@ -9,23 +9,22 @@ import "swiper/css/thumbs";
 
 import { MediaType } from "@/types/types";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import Button from "./Button";
 
 interface props {
   media: MediaType[];
+  cta_text: string;
+  start_at: Date;
 }
-export default function Media({ media }: props) {
+export default function Media({ media, cta_text, start_at }: props) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
 
-  const [clientReady, setClientReady] = useState(false);
-
-  useEffect(() => {
-    setClientReady(true);
-  }, []);
-
-  if (!clientReady) return null;
-
+  const handleBuy = (e: any) => {
+    e.preventDefault();
+    console.log("buy course action");
+  };
   return (
     <>
       <Swiper
@@ -53,6 +52,8 @@ export default function Media({ media }: props) {
                 <Image
                   src={item.resource_value}
                   alt={item.name}
+                  height={500}
+                  width={500}
                   className="w-full h-[220px]"
                 />
               </SwiperSlide>
@@ -74,6 +75,8 @@ export default function Media({ media }: props) {
           media?.map((item: MediaType, index: number) => (
             <SwiperSlide key={index}>
               <Image
+                height={300}
+                width={300}
                 src={
                   item.resource_type === "video"
                     ? item.thumbnail_url || ""
@@ -84,6 +87,25 @@ export default function Media({ media }: props) {
             </SwiperSlide>
           ))}
       </Swiper>
+      <div className="px-4">
+        <p className="text-xs font-normal text-gray-500 md:text-base mt-6">
+          ব্যাচ ১০: ৬ জানুয়ারি, ২০২৫ - মার্চ ১৯, ২০২৫
+        </p>
+
+        <div className="my-6">
+          <Button
+            className="w-full shadow-md"
+            type="button"
+            onClick={handleBuy}
+          >
+            {cta_text}
+          </Button>
+        </div>
+
+        <p className=" md:block text-base text-[#F3764E] ">
+          ১০ম ব্যাচের ভর্তি শেষ হবে:৬ জানুয়ারী, ২০২৫
+        </p>
+      </div>
     </>
   );
 }
