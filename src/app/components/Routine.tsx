@@ -10,7 +10,7 @@ export default function Routine({ name, values }: props) {
     <div className="mb-10">
       <SectionTitle title={name} download_link={values[0].download_link} />
       <div
-        className="w-full"
+        className="w-full overflow-x-auto"
         dangerouslySetInnerHTML={{ __html: values[0].html }}
       ></div>
     </div>

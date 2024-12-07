@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function CourseOverview({ title, description }: Overview) {
   return (
-    <div className="">
+    <div>
       <Image
         src="https://cdn.10minuteschool.com/images/live_icon_1712036077434.png"
         alt="live-batch-logo"

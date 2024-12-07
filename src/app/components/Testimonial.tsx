@@ -27,11 +27,24 @@ export default function Testimonial({ values, name }: props) {
   };
 
   return (
-    <>
+    <div className="mb-10">
       <SectionTitle title={name} />
       <Swiper
-        spaceBetween={10}
+        spaceBetween={40}
         navigation={true}
+        breakpoints={{
+          300: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+        }}
         slidesPerView={2}
         modules={[FreeMode, Navigation, Thumbs]} // Remove Grid module
         className="swipper-main"
@@ -55,7 +68,7 @@ export default function Testimonial({ values, name }: props) {
                       onClick={handlePlay}
                       className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 bg-white text-white rounded-full p-4"
                     >
-                      <FaPlay size={20} className="text-[#1CAB55]" />
+                      <FaPlay size={20} className="text-[#1CAB55] " />
                     </button>
                   </>
                 ) : (
@@ -89,6 +102,6 @@ export default function Testimonial({ values, name }: props) {
             </SwiperSlide>
           ))}
       </Swiper>
-    </>
+    </div>
   );
 }

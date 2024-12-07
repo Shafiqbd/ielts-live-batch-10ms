@@ -55,3 +55,16 @@ export interface TestimonialType {
   testimonial: string;
   video_url: string;
 }
+
+export interface AboutType {
+  description: string;
+  title: string;
+  icon?: string;
+  id: string;
+}
+
+export interface FaqType {
+  answer: string;
+  question: string;
+  id: string;
+}

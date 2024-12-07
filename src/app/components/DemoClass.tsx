@@ -29,10 +29,13 @@ export default function DemoClass({
   console.log("background", background);
   return (
     <div
-      style={{ backgroundImage: `url(${background.image})` }}
+      style={{
+        backgroundImage: `url(${background.image})`,
+        minHeight: "300px",
+      }}
       className="mb-8 rounded-xl p-8 mt-6"
     >
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:pt-32 lg:pt-0">
         <div>
           <Image src={top_left_icon_img} alt={title} height={150} width={150} />
           <h2
@@ -47,7 +50,7 @@ export default function DemoClass({
 
           <Button type="button">{cta.text}</Button>
         </div>
-        <div>
+        <div className="hidden md:block">
           <Image
             src={thumbnail}
             alt={title}
