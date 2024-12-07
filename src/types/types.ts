@@ -40,3 +40,7 @@ export interface PointersType {
   id: string;
   text: string;
 }
+export interface RoutineType {
+  download_link?: string;
+  html: string;
+}

@@ -63,3 +63,7 @@ body {
   cursor: pointer !important;
   opacity: 1 !important;
 }
+
+table {
+  width: 100%;
+}

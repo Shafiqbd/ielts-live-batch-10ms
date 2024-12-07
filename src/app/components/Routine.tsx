@@ -1,9 +1,18 @@
-import React from 'react'
+import { RoutineType } from "@/types/types";
+import SectionTitle from "./SectionTitle";
 
-export default function Routine() {
+interface props {
+  name: string;
+  values: RoutineType[];
+}
+export default function Routine({ name, values }: props) {
   return (
-    <div>
-      Routine
+    <div className="mb-10">
+      <SectionTitle title={name} download_link={values[0].download_link} />
+      <div
+        className="w-full"
+        dangerouslySetInnerHTML={{ __html: values[0].html }}
+      ></div>
     </div>
-  )
+  );
 }

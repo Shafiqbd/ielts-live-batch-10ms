@@ -19,7 +19,6 @@ export default function Pointers({ name, values }: props) {
               key={index}
             >
               <IoIosCheckmark className="text-[#6691e8] w-8 h-8 -mt-1" />
-
               <div className="flex-1 ml-3 ">{item.text}</div>
             </div>
           ))}
