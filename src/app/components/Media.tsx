@@ -10,6 +10,7 @@ import "swiper/css/thumbs";
 import { MediaType } from "@/types/types";
 import Image from "next/image";
 import { useState } from "react";
+import { FaPlay } from "react-icons/fa";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Button from "./Button";
 
@@ -25,6 +26,13 @@ export default function Media({ media, cta_text, start_at }: props) {
     e.preventDefault();
     console.log("buy course action");
   };
+
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
+
   return (
     <>
       <Swiper
@@ -39,13 +47,36 @@ export default function Media({ media, cta_text, start_at }: props) {
           media?.map((item: MediaType, index: number) =>
             item.resource_type === "video" ? (
               <SwiperSlide key={index}>
-                <iframe
-                  className="w-full md:h-[220px] h-[220px]"
-                  src={`https://www.youtube.com/embed/${item.resource_value}`}
-                  title={item.name}
-                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                />
+                <div className="relative w-full md:h-[220px] h-[220px]">
+                  {!isPlaying ? (
+                    <>
+                      {/* Thumbnail */}
+                      <Image
+                        src={item.thumbnail_url || ""}
+                        alt={item.name}
+                        height={500}
+                        width={500}
+                        className="w-full h-full object-cover"
+                      />
+                      {/* Play Button */}
+                      <button
+                        onClick={handlePlay}
+                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 bg-white text-white rounded-full p-4"
+                      >
+                        <FaPlay size={20} className="text-[#1CAB55]" />
+                      </button>
+                    </>
+                  ) : (
+                    // Video iframe
+                    <iframe
+                      className="w-full h-full"
+                      src={`https://www.youtube.com/embed/${item.resource_value}?autoplay=1`}
+                      title={item.name}
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                    />
+                  )}
+                </div>
               </SwiperSlide>
             ) : (
               <SwiperSlide className="h-[220px]" key={index}>

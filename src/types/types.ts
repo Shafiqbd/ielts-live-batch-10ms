@@ -44,3 +44,14 @@ export interface RoutineType {
   download_link?: string;
   html: string;
 }
+
+export interface TestimonialType {
+  description: string;
+  id: string;
+  name: string;
+  profile_image: string;
+  thumb: string;
+  video_type: string;
+  testimonial: string;
+  video_url: string;
+}
