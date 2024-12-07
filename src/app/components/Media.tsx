@@ -19,7 +19,7 @@ interface props {
   cta_text: string;
   start_at: Date;
 }
-export default function Media({ media, cta_text, start_at }: props) {
+export default function Media({ media, cta_text }: props) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
 
   const handleBuy = (e: any) => {

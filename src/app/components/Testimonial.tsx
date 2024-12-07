@@ -1,5 +1,5 @@
 "use client";
-import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -19,7 +19,6 @@ interface props {
   name: string;
 }
 export default function Testimonial({ values, name }: props) {
-  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
   const handlePlay = () => {

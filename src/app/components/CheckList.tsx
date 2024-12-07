@@ -14,7 +14,7 @@ export default function CheckList({ checklist }: props) {
       {checklist &&
         checklist.length > 0 &&
         checklist.map((item: Checklist, index: number) => (
-          <div className="flex items-center mb-3 leading-5">
+          <div className="flex items-center mb-3 leading-5" key={index}>
             <div className="inline-block h-[20px] w-[20px]  transition-opacity duration-300 ease-in-out">
               <Image src={item.icon} alt={item.text} width={200} height={200} />
             </div>

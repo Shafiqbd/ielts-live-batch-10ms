@@ -14,8 +14,8 @@ export default function Features({ name, values }: props) {
       <div className="mb-16 grid grid-cols-1 gap-4 rounded-md border bg-[#111827] p-6 md:grid-cols-2 md:gap-8">
         {values &&
           values.length > 0 &&
-          values.map((item, index) => (
-            <div className="flex flex-row items-start gap-3 m-1">
+          values.map((item: FeaturesType, index: number) => (
+            <div className="flex flex-row items-start gap-3 m-1" key={index}>
               <div className="mb-4 mx-auto transition-opacity duration-300 ease-in-out">
                 <Image
                   src={item.icon}
