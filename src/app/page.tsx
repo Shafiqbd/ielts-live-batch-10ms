@@ -10,7 +10,25 @@ import Sidebar from "@/app/components/Sidebar";
 import Testimonial from "@/app/components/Testimonial";
 import { apiService } from "@/utils/apiService";
 import { delay } from "@/utils/helper";
+import { Metadata } from "next";
 import Loading from "./loading";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const data: any = await apiService(`products/ielts-live-batch`);
+
+  const { seo } = data || {};
+
+  return {
+    title: `10ms - ${seo[0]?.title || "IELTS LIVE Batch"}`,
+    description:
+      seo[0]?.description ||
+      "আমাদের দেশসেরা ইন্সট্রাক্টরের ডিরেক্ট গাইডেন্স ও ফিডব্যাকসহ IELTS'র সেরা প্রস্তুতি পাবেন এই একটি কোর্সেই। লাইভ কোর্সে Listening, Reading, Writing এবং Speaking এর সকল টেকনিকগুলো শেখানো হবে, একদম হাতে-কলমে। লাইভ ব্যাচে জয়েন করে মাত্র ১২ সপ্তাহের মধ্যে unlock করুন আপনার কাঙ্খিত IELTS স্কোর।",
+    keywords:
+      seo[0]?.keywords ||
+      "IELTS LIVE Batch, 10 MINUTE SCHOOL, 10ms, Best online education platform in bangladesh",
+    authors: [{ name: seo[0]?.author || "10ms" }],
+  };
+}
 
 export default async function pages() {
   let data: any;
