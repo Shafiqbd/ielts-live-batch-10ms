@@ -10,10 +10,25 @@ import Routine from "@/app/components/Routine";
 import Sidebar from "@/app/components/Sidebar";
 import Testimonial from "@/app/components/Testimonial";
 import { apiService } from "@/utils/apiService";
+import { delay } from "@/utils/helper";
+import Loading from "./loading";
 
 export default async function pages() {
-  const data: any = await apiService("products/ielts-live-batch");
+  let data: any;
 
+  try {
+    data = await apiService("products/ielts-live-batch");
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    return (
+      <div className="container mx-auto py-6">
+        <p className="text-center text-red-500">
+          Failed to load data. Please try again later.
+        </p>
+      </div>
+    );
+  }
+  await delay(500);
   const { media, checklist, cta_text, start_at, sections } = data;
 
   return (
@@ -21,17 +36,19 @@ export default async function pages() {
       <div className=" overview-background">
         <div className="container relative flex flex-col gap-4 md:flex-row md:gap-12 pb-6 md:py-10  mx-auto">
           <div className="order-1 flex flex-col justify-center flex-1 lg:order-1  lg:max-w-[calc(100%_-_500px)]">
-            <CourseOverview {...data} />
+            {data ? <CourseOverview {...data} /> : <Loading />}
           </div>
 
           <div className="w-full  lg:max-w-[400px] order-2 bg-white absolute right-0 lg:top-[50px] lg:absolute p-1 border">
-            {media && checklist && media.length > 0 && (
+            {media && checklist && media.length > 0 ? (
               <Sidebar
                 media={media}
                 checklist={checklist}
                 cta_text={cta_text}
                 start_at={start_at}
               />
+            ) : (
+              <Loading />
             )}
           </div>
         </div>
@@ -39,8 +56,7 @@ export default async function pages() {
 
       <main className="container flex flex-col gap-4 lg:flex-row lg:gap-12 mx-auto px-4 md:px-0">
         <section className="order-2 flex-1 lg:order-1 lg:max-w-[calc(100%_-_448px)]">
-          {sections &&
-            sections.length > 0 &&
+          {sections && sections?.length > 0 ? (
             sections.map((section: any, index: number) => {
               return (
                 <div key={index}>
@@ -63,7 +79,10 @@ export default async function pages() {
                   {section.type === "faq" && <Faq {...section} />}
                 </div>
               );
-            })}
+            })
+          ) : (
+            <Loading />
+          )}
         </section>
         <section className="w-full md:max-w-[330px] lg:max-w-[400px] order-2 bg-white">
           {/* <Media /> */}

@@ -45,3 +45,6 @@ export const formatDateBanglaWithMoment = (
 
   return `১০: ${startDay} ${startMonth}, ${startYear} - ${endMonth} ${endDay}, ${endYear}`;
 };
+
+export const delay = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
