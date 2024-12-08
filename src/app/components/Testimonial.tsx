@@ -52,7 +52,12 @@ export default function Testimonial({ values, name }: props) {
           values?.length > 0 &&
           values?.map((item: TestimonialType, index: number) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full  border p-4 rounded ">
+              {/* <RiDoubleQuotesL
+                  size={20}
+                  className="text-[#EC1F27] h-8 w-8 rounded-full z-50 font-bold bg-[#FCE0D6] 
+                  p-2 absolute -top-4 left-15 overflow-visible"
+                /> */}
+              <div className="relative w-full border p-4 rounded z-10">
                 {!isPlaying ? (
                   <>
                     <Image

@@ -10,7 +10,7 @@ export default function Pointers({ name, values }: props) {
   return (
     <div className="mb-10">
       <SectionTitle title={name} />
-      <div className="grid grid-cols-1 px-4 mb-4 border rounded-md lg:grid-cols-2">
+      <div className="grid grid-cols-1 lg:px-4 mb-4 md:border rounded-md lg:grid-cols-2">
         {values &&
           values.length > 0 &&
           values.map((item: PointersType, index: number) => (

@@ -3,7 +3,6 @@ import CourseOverview from "@/app/components/CourseOverview";
 import DemoClass from "@/app/components/DemoClass";
 import Faq from "@/app/components/Faq";
 import Features from "@/app/components/Features";
-import FreeItem from "@/app/components/FreeItem";
 import Instructors from "@/app/components/Instructors";
 import Pointers from "@/app/components/Pointers";
 import Routine from "@/app/components/Routine";
@@ -34,12 +33,12 @@ export default async function pages() {
   return (
     <div>
       <div className=" overview-background">
-        <div className="container relative flex flex-col gap-4 md:flex-row md:gap-12 pb-6 md:py-10  mx-auto">
+        <div className="container relative flex flex-col-reverse gap-4 lg:flex-row lg:gap-12 pb-6 lg:py-10  mx-auto">
           <div className="order-1 flex flex-col justify-center flex-1 lg:order-1  lg:max-w-[calc(100%_-_500px)]">
             {data ? <CourseOverview {...data} /> : <Loading />}
           </div>
 
-          <div className="w-full  lg:max-w-[400px] order-2 bg-white absolute right-0 lg:top-[50px] lg:absolute p-1 border">
+          <div className="w-full  lg:max-w-[400px] order-2 bg-white block right-0 lg:top-[50px] lg:absolute p-1 border">
             {media && checklist && media.length > 0 ? (
               <Sidebar
                 media={media}
@@ -71,7 +70,7 @@ export default async function pages() {
                   )}
 
                   {section.type === "pointers" && <Pointers {...section} />}
-                  {section.type === "free_items" && <FreeItem {...section} />}
+                  {/* {section.type === "free_items" && <FreeItem {...section} />} */}
                   {section.type === "testimonials" && (
                     <Testimonial {...section} />
                   )}

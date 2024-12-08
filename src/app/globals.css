@@ -57,6 +57,9 @@ body {
   margin-left: 15px !important;
 }
 
+/* .swipper-main {
+  overflow: none !important;
+} */
 .swiper-slide-visible {
   height: 30px !important;
   width: 55px !important;

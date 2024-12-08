@@ -35,7 +35,7 @@ export default function DemoClass({
       }}
       className="mb-8 rounded-xl p-8 mt-6"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:pt-32 lg:pt-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:pt-0">
         <div>
           <Image src={top_left_icon_img} alt={title} height={150} width={150} />
           <h2
