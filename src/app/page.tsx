@@ -54,7 +54,7 @@ export default async function pages() {
         </div>
       </div>
 
-      <main className="container flex flex-col gap-4 lg:flex-row lg:gap-12 mx-auto px-4 md:px-0">
+      <main className="container flex flex-col gap-4 lg:flex-row lg:gap-12 mx-auto px-4 xl:px-0">
         <section className="order-2 flex-1 lg:order-1 lg:max-w-[calc(100%_-_448px)]">
           {sections && sections?.length > 0 ? (
             sections.map((section: any, index: number) => {

@@ -11,7 +11,7 @@ export default function Button({ type, onClick, children, className }: props) {
   return (
     <button
       type={type}
-      className={`bg-[#1CAB55] text-white py-2 px-4 rounded-md font-medium ${className}`}
+      className={`bg-[#1CAB55] hover:bg-[#138f45] text-white py-2 px-4 rounded-md font-medium ${className}`}
       onClick={onClick}
     >
       {children}

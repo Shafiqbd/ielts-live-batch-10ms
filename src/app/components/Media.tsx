@@ -61,7 +61,7 @@ export default function Media({ media, cta_text }: props) {
                       {/* Play Button */}
                       <button
                         onClick={handlePlay}
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 bg-white text-white rounded-full p-4"
+                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 bg-white hover:bg-slate-100 text-white rounded-full p-4"
                       >
                         <FaPlay size={20} className="text-[#1CAB55]" />
                       </button>
