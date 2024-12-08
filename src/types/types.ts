@@ -2,6 +2,7 @@
 export interface Overview {
   title: string;
   description: string;
+  start_at: string;
 }
 
 export interface MediaType {

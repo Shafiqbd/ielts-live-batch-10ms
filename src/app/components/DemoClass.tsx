@@ -26,7 +26,6 @@ export default function DemoClass({
   title_color,
   top_left_icon_img,
 }: props) {
-  console.log("background", background);
   return (
     <div
       style={{

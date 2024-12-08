@@ -1,7 +1,12 @@
 import { Overview } from "@/types/types";
 import Image from "next/image";
+import Countdown from "./Countdown";
 
-export default function CourseOverview({ title, description }: Overview) {
+export default function CourseOverview({
+  title,
+  description,
+  start_at,
+}: Overview) {
   return (
     <div className="p-4 xl:p-0">
       <Image
@@ -22,6 +27,7 @@ export default function CourseOverview({ title, description }: Overview) {
           __html: description || "No description available.",
         }}
       />
+      <Countdown start_at={start_at} />
     </div>
   );
 }
